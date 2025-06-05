@@ -6,6 +6,8 @@ export interface Product {
   lastOrderedDate?: string;
   category?: string;
   description?: string;
+  stock: number;
+  relatedProductIds?: string[];
 }
 
 export interface OrderItem {
