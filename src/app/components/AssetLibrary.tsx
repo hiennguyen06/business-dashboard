@@ -296,7 +296,11 @@ export default function AssetLibrary({
               <div className="flex space-x-2">
                 <button
                   onClick={() => downloadAsset(asset)}
-                  className="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2 px-3 rounded transition-colors"
+                  className="flex-1 text-white text-sm font-medium py-2 px-3 rounded transition-colors"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%)",
+                  }}
                 >
                   Download
                 </button>

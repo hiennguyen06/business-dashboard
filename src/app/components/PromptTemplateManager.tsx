@@ -246,9 +246,17 @@ export default function PromptTemplateManager({
             onClick={() => setIsCustomMode(false)}
             className={`px-4 py-2 rounded-lg font-medium transition-colors ${
               !isCustomMode
-                ? "bg-blue-600 text-white"
+                ? "text-white"
                 : "bg-gray-100 text-gray-700 hover:bg-gray-200"
             }`}
+            style={
+              !isCustomMode
+                ? {
+                    background:
+                      "linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%)",
+                  }
+                : {}
+            }
           >
             Template Mode
           </button>
@@ -256,9 +264,17 @@ export default function PromptTemplateManager({
             onClick={() => setIsCustomMode(true)}
             className={`px-4 py-2 rounded-lg font-medium transition-colors ${
               isCustomMode
-                ? "bg-blue-600 text-white"
+                ? "text-white"
                 : "bg-gray-100 text-gray-700 hover:bg-gray-200"
             }`}
+            style={
+              isCustomMode
+                ? {
+                    background:
+                      "linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%)",
+                  }
+                : {}
+            }
           >
             Custom Prompt
           </button>
@@ -279,9 +295,17 @@ export default function PromptTemplateManager({
                   onClick={() => setSelectedPrompt(prompt)}
                   className={`p-4 border-2 rounded-lg cursor-pointer transition-colors ${
                     selectedPrompt.id === prompt.id
-                      ? "border-blue-500 bg-blue-50"
+                      ? "border-gray-200 hover:border-gray-300"
                       : "border-gray-200 hover:border-gray-300"
                   }`}
+                  style={
+                    selectedPrompt.id === prompt.id
+                      ? {
+                          borderColor: "var(--primary-border)",
+                          backgroundColor: "var(--primary-light)",
+                        }
+                      : {}
+                  }
                 >
                   <h4 className="font-medium text-gray-900">{prompt.name}</h4>
                   <p className="text-sm text-gray-600 mt-1 capitalize">
@@ -326,7 +350,11 @@ export default function PromptTemplateManager({
             </div>
             <button
               onClick={generateFromTemplate}
-              className="mt-6 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              className="mt-6 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              style={{
+                background:
+                  "linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%)",
+              }}
             >
               Generate from Template
             </button>

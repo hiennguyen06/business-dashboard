@@ -50,7 +50,11 @@ export default function RelatedProductRecommendations({
                 </div>
                 <button
                   onClick={() => onAddToOrder(product, 1)}
-                  className="bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium py-2 px-3 rounded transition-colors"
+                  className="text-white text-xs font-medium py-2 px-3 rounded transition-colors"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%)",
+                  }}
                 >
                   Add to Order
                 </button>

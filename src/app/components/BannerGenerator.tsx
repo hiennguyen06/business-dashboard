@@ -338,9 +338,17 @@ export default function BannerGenerator({
               onClick={() => handleTemplateChange(template)}
               className={`p-4 border-2 rounded-lg cursor-pointer transition-colors ${
                 selectedTemplate.id === template.id
-                  ? "border-blue-500 bg-blue-50"
+                  ? "border-gray-200 hover:border-gray-300"
                   : "border-gray-200 hover:border-gray-300"
               }`}
+              style={
+                selectedTemplate.id === template.id
+                  ? {
+                      borderColor: "var(--primary-border)",
+                      backgroundColor: "var(--primary-light)",
+                    }
+                  : {}
+              }
             >
               <h4 className="font-medium text-gray-900">{template.name}</h4>
               <p className="text-sm text-gray-600 mt-1">
@@ -521,7 +529,11 @@ export default function BannerGenerator({
         <div className="flex flex-wrap gap-4">
           <button
             onClick={saveAsset}
-            className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+            className="btn-primary font-medium py-2 px-4 rounded-lg"
+            style={{
+              background:
+                "linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%)",
+            }}
           >
             Save Asset
           </button>

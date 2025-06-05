@@ -198,8 +198,16 @@ export default function ProductList({
                   className={`font-medium py-2 px-4 rounded-lg transition-colors ${
                     isOutOfStock
                       ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                      : "bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white"
+                      : "text-white disabled:bg-gray-300 disabled:cursor-not-allowed"
                   }`}
+                  style={
+                    !isOutOfStock && quantity > 0
+                      ? {
+                          background:
+                            "linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%)",
+                        }
+                      : {}
+                  }
                 >
                   {isOutOfStock ? "Out of Stock" : "Add to Order"}
                 </button>

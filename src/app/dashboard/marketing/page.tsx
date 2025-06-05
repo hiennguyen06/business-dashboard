@@ -65,9 +65,17 @@ export default function MarketingToolkitPage() {
               onClick={() => setActiveTab("generator")}
               className={`py-4 px-1 border-b-2 font-medium text-sm transition-colors ${
                 activeTab === "generator"
-                  ? "border-blue-500 text-blue-600"
+                  ? "border-primary text-primary"
                   : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
               }`}
+              style={
+                activeTab === "generator"
+                  ? {
+                      borderBottomColor: "var(--primary)",
+                      color: "var(--primary)",
+                    }
+                  : {}
+              }
             >
               🎨 Banner Generator
             </button>
@@ -75,9 +83,17 @@ export default function MarketingToolkitPage() {
               onClick={() => setActiveTab("prompts")}
               className={`py-4 px-1 border-b-2 font-medium text-sm transition-colors ${
                 activeTab === "prompts"
-                  ? "border-blue-500 text-blue-600"
+                  ? "border-primary text-primary"
                   : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
               }`}
+              style={
+                activeTab === "prompts"
+                  ? {
+                      borderBottomColor: "var(--primary)",
+                      color: "var(--primary)",
+                    }
+                  : {}
+              }
             >
               🤖 AI Prompts
             </button>
@@ -85,9 +101,17 @@ export default function MarketingToolkitPage() {
               onClick={() => setActiveTab("library")}
               className={`py-4 px-1 border-b-2 font-medium text-sm transition-colors ${
                 activeTab === "library"
-                  ? "border-blue-500 text-blue-600"
+                  ? "border-primary text-primary"
                   : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
               }`}
+              style={
+                activeTab === "library"
+                  ? {
+                      borderBottomColor: "var(--primary)",
+                      color: "var(--primary)",
+                    }
+                  : {}
+              }
             >
               📁 Asset Library ({assets.length})
             </button>
@@ -140,23 +164,31 @@ export default function MarketingToolkitPage() {
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div className="text-center">
-            <p className="text-2xl font-bold text-blue-600">{assets.length}</p>
+            <p
+              className="text-2xl font-bold"
+              style={{ color: "var(--primary)" }}
+            >
+              {assets.length}
+            </p>
             <p className="text-sm text-gray-600">Total Assets</p>
           </div>
           <div className="text-center">
-            <p className="text-2xl font-bold text-green-600">
+            <p
+              className="text-2xl font-bold"
+              style={{ color: "var(--primary-hover)" }}
+            >
               {assets.filter((a) => a.format === "html").length}
             </p>
             <p className="text-sm text-gray-600">HTML Assets</p>
           </div>
           <div className="text-center">
-            <p className="text-2xl font-bold text-purple-600">
+            <p className="text-2xl font-bold" style={{ color: "#6366f1" }}>
               {assets.filter((a) => a.format === "image").length}
             </p>
             <p className="text-sm text-gray-600">Image Assets</p>
           </div>
           <div className="text-center">
-            <p className="text-2xl font-bold text-orange-600">
+            <p className="text-2xl font-bold" style={{ color: "#f59e0b" }}>
               {assets.filter((a) => a.type === "banner").length}
             </p>
             <p className="text-sm text-gray-600">Banners</p>

@@ -3,6 +3,12 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Custom theme colors */
+  --primary: #001080;
+  --primary-hover: #0066cc;
+  --primary-light: #e6f3ff;
+  --primary-border: #4d94ff;
 }
 
 @theme inline {
@@ -23,4 +29,39 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Custom button styles */
+.btn-primary {
+  background: linear-gradient(
+    135deg,
+    var(--primary) 0%,
+    var(--primary-hover) 100%
+  );
+  color: white;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--primary-hover) 0%, #0080ff 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 16, 128, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Custom border styles */
+.border-primary {
+  border-color: var(--primary-border);
+}
+
+.bg-primary-light {
+  background-color: var(--primary-light);
+}
+
+.text-primary {
+  color: var(--primary);
 }

@@ -118,7 +118,11 @@ export default function OrderSummary({
 
         <button
           onClick={handlePlaceOrder}
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition-colors"
+          className="w-full text-white font-medium py-3 px-4 rounded-lg transition-colors"
+          style={{
+            background:
+              "linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%)",
+          }}
         >
           Place Order ({items.length} item{items.length !== 1 ? "s" : ""})
         </button>
