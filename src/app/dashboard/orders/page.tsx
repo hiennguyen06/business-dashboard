@@ -1,4 +1,11 @@
+"use client";
+
+import { useOrders } from "@/app/components/OrderContext";
+import OrderHistory from "@/app/components/OrderHistory";
+
 export default function OrderHistoryPage() {
+  const { orders } = useOrders();
+
   return (
     <div className="space-y-6">
       <div>
@@ -8,18 +15,7 @@ export default function OrderHistoryPage() {
         </p>
       </div>
 
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
-        <div className="text-center">
-          <div className="text-6xl mb-4">📋</div>
-          <h3 className="text-lg font-medium text-gray-900 mb-2">
-            Order History Coming Soon
-          </h3>
-          <p className="text-gray-600">
-            This section will display your order history, tracking information,
-            and allow you to reorder items.
-          </p>
-        </div>
-      </div>
+      <OrderHistory orders={orders} />
     </div>
   );
 }

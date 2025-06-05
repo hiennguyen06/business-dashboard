@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Product, OrderItem } from "@/types";
 import { getFrequentlyOrderedProducts } from "@/app/lib/mock-data";
+import { useOrders } from "@/app/components/OrderContext";
 import ProductList from "@/app/components/ProductList";
 import OrderSummary from "@/app/components/OrderSummary";
 
@@ -10,6 +11,7 @@ export default function QuickOrderPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [orderItems, setOrderItems] = useState<OrderItem[]>([]);
   const [loading, setLoading] = useState(true);
+  const { addOrder } = useOrders();
 
   useEffect(() => {
     const loadProducts = async () => {
@@ -76,7 +78,9 @@ export default function QuickOrderPage() {
   };
 
   const handlePlaceOrder = () => {
-    // Clear the order after placing it
+    // Save the order to global state
+    addOrder(orderItems);
+    // Clear the current order
     setOrderItems([]);
   };
 

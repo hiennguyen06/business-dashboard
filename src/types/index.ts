@@ -28,3 +28,34 @@ export interface QuickOrderState {
   selectedItems: OrderItem[];
   total: number;
 }
+
+export interface SpendingAnalytics {
+  totalSpent: number;
+  totalSavings: number;
+  discountRate: number;
+  monthlyData: MonthlySpending[];
+  categoryBreakdown: CategorySpending[];
+  savingsOverTime: SavingsData[];
+}
+
+export interface MonthlySpending {
+  month: string;
+  year: number;
+  totalSpent: number;
+  totalSavings: number;
+  orderCount: number;
+}
+
+export interface CategorySpending {
+  category: string;
+  totalSpent: number;
+  totalSavings: number;
+  orderCount: number;
+  percentage: number;
+}
+
+export interface SavingsData {
+  date: string;
+  cumulativeSavings: number;
+  monthlySavings: number;
+}
