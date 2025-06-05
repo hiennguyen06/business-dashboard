@@ -59,3 +59,53 @@ export interface SavingsData {
   cumulativeSavings: number;
   monthlySavings: number;
 }
+
+export interface MarketingAsset {
+  id: string;
+  name: string;
+  type: "banner" | "social" | "email" | "flyer";
+  format: "html" | "image";
+  template: BannerTemplate;
+  content: BannerContent;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface BannerTemplate {
+  id: string;
+  name: string;
+  type: "promotional" | "seasonal" | "product" | "discount" | "announcement";
+  dimensions: {
+    width: number;
+    height: number;
+  };
+  layout: "hero" | "sidebar" | "header" | "footer" | "square" | "story";
+  colorScheme: "blue" | "green" | "red" | "purple" | "orange" | "custom";
+}
+
+export interface BannerContent {
+  headline: string;
+  subheadline?: string;
+  description?: string;
+  callToAction: string;
+  buttonText: string;
+  backgroundColor: string;
+  textColor: string;
+  accentColor: string;
+  imageUrl?: string;
+  logoUrl?: string;
+  discount?: {
+    percentage: number;
+    code: string;
+    validUntil: string;
+  };
+}
+
+export interface PromptTemplate {
+  id: string;
+  name: string;
+  category: "promotional" | "seasonal" | "product" | "discount";
+  prompt: string;
+  variables: string[];
+  example: BannerContent;
+}
